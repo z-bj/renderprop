@@ -2,26 +2,16 @@ import React, { Component } from "react";
 import benchamek from "./benchamek.png";
 
 class Benchamek extends Component {
-  state = {
-    hits: 0,
-  };
-
-  addOne = () => {
-    this.setState((prevState) => {
-      return {
-        hits: prevState.hits + 1,
-      };
-    });
-  };
-
   render() {
+    const { hits, addOne, name } = this.props;
+
     return (
       <div className="col">
         <img src={benchamek} width={125} alt="benchamek" />
         <br />
 
-        <button onClick={this.addOne} className="btn btn-success m-3">
-          {this.props.name}
+        <button onClick={addOne} className="btn btn-success m-3">
+          {name} Hit
         </button>
 
         <table className="table table-striped">
@@ -33,7 +23,7 @@ class Benchamek extends Component {
         </table>
         <tbody>
           <tr>
-            <td>{this.state.hits}</td>
+            <td>{hits}</td>
           </tr>
         </tbody>
       </div>
